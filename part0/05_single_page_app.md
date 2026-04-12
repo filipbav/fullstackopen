@@ -1,15 +1,10 @@
 ```mermaid
 
 sequenceDiagram
-    participant browser
-    participant server
+participant browser
+participant server
 
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    activate server
-    server-->>browser: HTTP 302 redirect to /notes
-    deactivate server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
     server-->>browser: the HTML document
     deactivate server
@@ -19,7 +14,7 @@ sequenceDiagram
     server-->>browser: the CSS stylesheet
     deactivate server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
     activate server
     server-->>browser: the JavaScript file
     deactivate server
@@ -31,7 +26,7 @@ sequenceDiagram
     server-->>browser: the JSON payload containing notes
     deactivate server
 
-    Note right of browser: The browser processes the response and renders the updated notes list
+    Note right of browser: The browser processes the response and renders the notes list
 
     browser->>server: GET https://studies.cs.helsinki.fi/favicon.ico
     activate server
